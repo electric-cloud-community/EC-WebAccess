@@ -49,6 +49,81 @@
                     <expandable>0</expandable>
                     <value>@PLUGIN_KEY@-@PLUGIN_VERSION@/RestRequest</value>
                 </property>
+                <property>
+                    <propertyName>ec_customEditorData</propertyName>
+                    <propertySheet>
+                        <property>
+                            <propertyName>parameters</propertyName>
+                            <propertySheet>
+                                <property>
+                                    <propertyName>contentType</propertyName>
+                                    <propertySheet>
+                                        <property>
+                                            <propertyName>formType</propertyName>
+                                            <expandable>1</expandable>
+                                            <value>standard</value>
+                                        </property>
+                                    </propertySheet>
+                                </property>
+                                
+                                <property>
+                                    <propertyName>formContent</propertyName>
+                                    <propertySheet>
+                                        <property>
+                                            <propertyName>formType</propertyName>
+                                            <expandable>1</expandable>
+                                            <value>standard</value>
+                                        </property>
+                                    </propertySheet>
+                                </property>
+
+                                <property>
+                                    <propertyName>headers</propertyName>
+                                    <propertySheet>
+                                        <property>
+                                            <propertyName>formType</propertyName>
+                                            <expandable>1</expandable>
+                                            <value>standard</value>
+                                        </property>
+                                    </propertySheet>
+                                </property>
+                                
+                                <property>
+                                    <propertyName>authentication</propertyName>
+                                    <propertySheet>
+                                        <property>
+                                            <propertyName>formType</propertyName>
+                                            <expandable>1</expandable>
+                                            <value>standard</value>
+                                        </property>
+                                    </propertySheet>
+                                </property>                   
+                                <property>
+                                    <propertyName>requestType</propertyName>
+                                    <propertySheet>
+                                        <property>
+                                            <propertyName>formType</propertyName>
+                                            <expandable>1</expandable>
+                                            <value>standard</value>
+                                        </property>
+                                    </propertySheet>
+                                </property>
+                                <property>
+                                    <propertyName>response_outpp</propertyName>
+                                    <propertySheet>
+                                        <property>
+                                            <propertyName>formType</propertyName>
+                                            <expandable>1</expandable>
+                                            <value>standard</value>
+                                        </property>
+                                    </propertySheet>
+                                </property>
+
+                                
+                            </propertySheet>
+                        </property>
+                    </propertySheet>
+                </property>
             </propertySheet>
             <formalParameter>
                 <formalParameterName>baseUrl</formalParameterName>
@@ -153,74 +228,9 @@
                         <propertyName>ec_customEditorData</propertyName>
                         <propertySheet>
                             <property>
-                                <propertyName>parameters</propertyName>
-                                <propertySheet>
-                                    <property>
-                                        <propertyName>contentType</propertyName>
-                                        <propertySheet>
-                                            <property>
-                                                <propertyName>formType</propertyName>
-                                                <expandable>1</expandable>
-                                                <value>standard</value>
-                                            </property>
-                                        </propertySheet>
-                                    </property>
-                                    
-                                    <property>
-                                        <propertyName>formContent</propertyName>
-                                        <propertySheet>
-                                            <property>
-                                                <propertyName>formType</propertyName>
-                                                <expandable>1</expandable>
-                                                <value>standard</value>
-                                            </property>
-                                        </propertySheet>
-                                    </property>
-
-                                    <property>
-                                        <propertyName>headers</propertyName>
-                                        <propertySheet>
-                                            <property>
-                                                <propertyName>formType</propertyName>
-                                                <expandable>1</expandable>
-                                                <value>standard</value>
-                                            </property>
-                                        </propertySheet>
-                                    </property>
-                                    
-                                    <property>
-                                        <propertyName>authentication</propertyName>
-                                        <propertySheet>
-                                            <property>
-                                                <propertyName>formType</propertyName>
-                                                <expandable>1</expandable>
-                                                <value>standard</value>
-                                            </property>
-                                        </propertySheet>
-                                    </property>                   
-                                    <property>
-                                        <propertyName>requestType</propertyName>
-                                        <propertySheet>
-                                            <property>
-                                                <propertyName>formType</propertyName>
-                                                <expandable>1</expandable>
-                                                <value>standard</value>
-                                            </property>
-                                        </propertySheet>
-                                    </property>
-                                    <property>
-                                        <propertyName>response_outpp</propertyName>
-                                        <propertySheet>
-                                            <property>
-                                                <propertyName>formType</propertyName>
-                                                <expandable>1</expandable>
-                                                <value>standard</value>
-                                            </property>
-                                        </propertySheet>
-                                    </property>
-
-                                    
-                                </propertySheet>
+                                <propertyName>formType</propertyName>
+                                <expandable>1</expandable>
+                                <value>command</value>
                             </property>
                         </propertySheet>
                     </property>
@@ -239,6 +249,92 @@
                     <description/>
                     <expandable>0</expandable>
                     <value>@PLUGIN_KEY@-@PLUGIN_VERSION@/HTMLtextSearch</value>
+                </property>
+                <property>
+                    <propertyName>ec_customEditorData</propertyName>
+                    <propertySheet>
+                        <property>
+                            <propertyName>parameters</propertyName>
+                            <propertySheet>
+                                <property>
+                                    <propertyName>searchOp</propertyName>
+                                    <propertySheet>
+                                        <property>
+                                            <propertyName>formType</propertyName>
+                                            <expandable>1</expandable>
+                                            <value>standard</value>
+                                        </property>
+                                    </propertySheet>
+                                </property>
+
+                                <property>
+                                    <propertyName>local</propertyName>
+                                    <propertySheet>
+                                        <property>
+                                            <propertyName>formType</propertyName>
+                                            <expandable>1</expandable>
+                                            <value>standard</value>
+                                        </property>
+                                    </propertySheet>
+                                </property>
+
+                                <property>
+                                    <propertyName>url</propertyName>
+                                    <propertySheet>
+                                        <property>
+                                            <propertyName>formType</propertyName>
+                                            <expandable>1</expandable>
+                                            <value>standard</value>
+                                        </property>
+                                    </propertySheet>
+                                </property>
+
+                                <property>
+                                    <propertyName>htmlText</propertyName>
+                                    <propertySheet>
+                                        <property>
+                                            <propertyName>formType</propertyName>
+                                            <expandable>1</expandable>
+                                            <value>standard</value>
+                                        </property>
+                                    </propertySheet>
+                                </property>                                
+
+                                <property>
+                                    <propertyName>searchType</propertyName>
+                                    <propertySheet>
+                                        <property>
+                                            <propertyName>formType</propertyName>
+                                            <expandable>1</expandable>
+                                            <value>standard</value>
+                                        </property>
+                                    </propertySheet>
+                                </property>
+
+                                <property>
+                                    <propertyName>text</propertyName>
+                                    <propertySheet>
+                                        <property>
+                                            <propertyName>formType</propertyName>
+                                            <expandable>1</expandable>
+                                            <value>standard</value>
+                                        </property>
+                                    </propertySheet>
+                                </property>
+
+                                <property>
+                                    <propertyName>tag</propertyName>
+                                    <propertySheet>
+                                        <property>
+                                            <propertyName>formType</propertyName>
+                                            <expandable>1</expandable>
+                                            <value>standard</value>
+                                        </property>
+                                    </propertySheet>
+                                </property>
+                            </propertySheet>
+                        </property>
+                    </propertySheet>
                 </property>
             </propertySheet>            
             <formalParameter>
@@ -316,85 +412,9 @@
                         <propertyName>ec_customEditorData</propertyName>
                         <propertySheet>
                             <property>
-                                <propertyName>parameters</propertyName>
-                                <propertySheet>
-                                    <property>
-                                        <propertyName>searchOp</propertyName>
-                                        <propertySheet>
-                                            <property>
-                                                <propertyName>formType</propertyName>
-                                                <expandable>1</expandable>
-                                                <value>standard</value>
-                                            </property>
-                                        </propertySheet>
-                                    </property>
-
-                                    <property>
-                                        <propertyName>local</propertyName>
-                                        <propertySheet>
-                                            <property>
-                                                <propertyName>formType</propertyName>
-                                                <expandable>1</expandable>
-                                                <value>standard</value>
-                                            </property>
-                                        </propertySheet>
-                                    </property>
-
-                                    <property>
-                                        <propertyName>url</propertyName>
-                                        <propertySheet>
-                                            <property>
-                                                <propertyName>formType</propertyName>
-                                                <expandable>1</expandable>
-                                                <value>standard</value>
-                                            </property>
-                                        </propertySheet>
-                                    </property>
-
-                                    <property>
-                                        <propertyName>htmlText</propertyName>
-                                        <propertySheet>
-                                            <property>
-                                                <propertyName>formType</propertyName>
-                                                <expandable>1</expandable>
-                                                <value>standard</value>
-                                            </property>
-                                        </propertySheet>
-                                    </property>                                
-
-                                    <property>
-                                        <propertyName>searchType</propertyName>
-                                        <propertySheet>
-                                            <property>
-                                                <propertyName>formType</propertyName>
-                                                <expandable>1</expandable>
-                                                <value>standard</value>
-                                            </property>
-                                        </propertySheet>
-                                    </property>
-
-                                    <property>
-                                        <propertyName>text</propertyName>
-                                        <propertySheet>
-                                            <property>
-                                                <propertyName>formType</propertyName>
-                                                <expandable>1</expandable>
-                                                <value>standard</value>
-                                            </property>
-                                        </propertySheet>
-                                    </property>
-
-                                    <property>
-                                        <propertyName>tag</propertyName>
-                                        <propertySheet>
-                                            <property>
-                                                <propertyName>formType</propertyName>
-                                                <expandable>1</expandable>
-                                                <value>standard</value>
-                                            </property>
-                                        </propertySheet>
-                                    </property>
-                                </propertySheet>
+                                <propertyName>formType</propertyName>
+                                <expandable>1</expandable>
+                                <value>command</value>
                             </property>
                         </propertySheet>
                     </property>
@@ -413,6 +433,91 @@
                     <description/>
                     <expandable>0</expandable>
                     <value>@PLUGIN_KEY@-@PLUGIN_VERSION@/AccessURL</value>
+                </property>
+                <property>
+                    <propertyName>ec_customEditorData</propertyName>
+                    <propertySheet>
+                        <property>
+                            <propertyName>parameters</propertyName>
+                            <propertySheet>
+                                <property>
+                                    <propertyName>url</propertyName>
+                                    <propertySheet>
+                                        <property>
+                                            <propertyName>formType</propertyName>
+                                            <expandable>1</expandable>
+                                            <value>standard</value>
+                                        </property>
+                                    </propertySheet>
+                                </property>
+                                <property>
+                                    <propertyName>getHtml</propertyName>
+                                    <propertySheet>
+                                        <property>
+                                            <propertyName>formType</propertyName>
+                                            <expandable>1</expandable>
+                                            <value>standard</value>
+                                        </property>
+                                    </propertySheet>
+                                </property>
+
+                                <property>
+                                    <propertyName>checkCredentials</propertyName>
+                                    <propertySheet>
+                                        <property>
+                                            <propertyName>formType</propertyName>
+                                            <expandable>1</expandable>
+                                            <value>standard</value>
+                                        </property>
+                                    </propertySheet>
+                                </property>
+
+                                <property>
+                                    <propertyName>username</propertyName>
+                                    <propertySheet>
+                                        <property>
+                                            <propertyName>formType</propertyName>
+                                            <expandable>1</expandable>
+                                            <value>standard</value>
+                                        </property>
+                                    </propertySheet>
+                                </property>                                
+
+                                <property>
+                                    <propertyName>password</propertyName>
+                                    <propertySheet>
+                                        <property>
+                                            <propertyName>formType</propertyName>
+                                            <expandable>1</expandable>
+                                            <value>standard</value>
+                                        </property>
+                                    </propertySheet>
+                                </property>
+
+                                <property>
+                                    <propertyName>checkTime</propertyName>
+                                    <propertySheet>
+                                        <property>
+                                            <propertyName>formType</propertyName>
+                                            <expandable>1</expandable>
+                                            <value>standard</value>
+                                        </property>
+                                    </propertySheet>
+                                </property>
+
+                                <property>
+                                    <propertyName>html_outpp</propertyName>
+                                    <propertySheet>
+                                        <property>
+                                            <propertyName>formType</propertyName>
+                                            <expandable>1</expandable>
+                                            <value>standard</value>
+                                        </property>
+                                    </propertySheet>
+                                </property>
+                            </propertySheet>
+                        </property>
+                    </propertySheet>
                 </property>
             </propertySheet>
             <formalParameter>
@@ -490,85 +595,9 @@
                         <propertyName>ec_customEditorData</propertyName>
                         <propertySheet>
                             <property>
-                                <propertyName>parameters</propertyName>
-                                <propertySheet>
-                                    <property>
-                                        <propertyName>url</propertyName>
-                                        <propertySheet>
-                                            <property>
-                                                <propertyName>formType</propertyName>
-                                                <expandable>1</expandable>
-                                                <value>standard</value>
-                                            </property>
-                                        </propertySheet>
-                                    </property>
-
-                                    <property>
-                                        <propertyName>getHtml</propertyName>
-                                        <propertySheet>
-                                            <property>
-                                                <propertyName>formType</propertyName>
-                                                <expandable>1</expandable>
-                                                <value>standard</value>
-                                            </property>
-                                        </propertySheet>
-                                    </property>
-
-                                    <property>
-                                        <propertyName>checkCredentials</propertyName>
-                                        <propertySheet>
-                                            <property>
-                                                <propertyName>formType</propertyName>
-                                                <expandable>1</expandable>
-                                                <value>standard</value>
-                                            </property>
-                                        </propertySheet>
-                                    </property>
-
-                                    <property>
-                                        <propertyName>username</propertyName>
-                                        <propertySheet>
-                                            <property>
-                                                <propertyName>formType</propertyName>
-                                                <expandable>1</expandable>
-                                                <value>standard</value>
-                                            </property>
-                                        </propertySheet>
-                                    </property>                                
-
-                                    <property>
-                                        <propertyName>password</propertyName>
-                                        <propertySheet>
-                                            <property>
-                                                <propertyName>formType</propertyName>
-                                                <expandable>1</expandable>
-                                                <value>standard</value>
-                                            </property>
-                                        </propertySheet>
-                                    </property>
-
-                                    <property>
-                                        <propertyName>checkTime</propertyName>
-                                        <propertySheet>
-                                            <property>
-                                                <propertyName>formType</propertyName>
-                                                <expandable>1</expandable>
-                                                <value>standard</value>
-                                            </property>
-                                        </propertySheet>
-                                    </property>
-
-                                    <property>
-                                        <propertyName>html_outpp</propertyName>
-                                        <propertySheet>
-                                            <property>
-                                                <propertyName>formType</propertyName>
-                                                <expandable>1</expandable>
-                                                <value>standard</value>
-                                            </property>
-                                        </propertySheet>
-                                    </property>
-                                </propertySheet>
+                                <propertyName>formType</propertyName>
+                                <expandable>1</expandable>
+                                <value>command</value>
                             </property>
                         </propertySheet>
                     </property>
