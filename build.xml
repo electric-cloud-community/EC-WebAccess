@@ -1,0 +1,10 @@
+<project name="EC-WebAccess" default="package" basedir=".">
+	<description>
+        Build the EC-WebAccess plugin
+    </description>
+    <property name="buildconfigdir" value="../Plugin-In-A-Box/scripts" />
+	<!-- plugin specific properties -->
+	<property name="pluginKey" value="EC-WebAccess" />
+	<property name="pluginVersion" value="1.0" />	    <property name="gwtModules" value="ecplugins.EC_WebAccess.HTMLtextSearchParameterPanel,    ecplugins.EC_WebAccess.AccessURLParameterPanel,ecplugins.EC_WebAccess.RestRequestParameterPanel"/>
+    <import file="${buildconfigdir}/buildTargets.xml"/>
+</project>

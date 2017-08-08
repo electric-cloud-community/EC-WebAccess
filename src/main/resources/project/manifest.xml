@@ -1,0 +1,31 @@
+<?xml version='1.0' standalone='yes'?>
+<fileset>
+  <file>
+    <path>lib/WebAccessDriver.pl</path>
+    <xpath>//property[propertyName=&quot;WebAccessDriver&quot;]/value</xpath>
+  </file>
+  <file>
+    <path>lib/Twig.pm</path>
+    <xpath>//property[propertyName=&quot;XML::Twig&quot;]/value</xpath>
+  </file>
+  <file>
+    <path>ec_setup.pl</path>
+    <xpath>//property[propertyName=&quot;ec_setup&quot;]/value</xpath>
+  </file>
+  <file>
+    <path>postp_matchers.pl</path>
+    <xpath>//property[propertyName=&quot;postp_matchers&quot;]/value</xpath>
+  </file>
+  <file>
+    <path>rest_request.pl</path>
+    <xpath>//step[stepName=&quot;restRequest&quot;]/command</xpath>
+  </file>
+  <file>
+    <path>access_url.pl</path>
+    <xpath>//step[stepName=&quot;AccessURL&quot;]/command</xpath>
+  </file>
+  <file>
+    <path>html_text_search.pl</path>
+    <xpath>//step[stepName=&quot;HTMLtextS&quot;]/command</xpath>
+  </file>
+</fileset>

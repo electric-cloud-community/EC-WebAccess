@@ -1,0 +1,13 @@
+.gradle
+/build
+.idea
+/bin/
+.classpath
+.project
+.settings
+.DS_Store
+*.iml
+*~
+/target
+/export
+/staging

@@ -1,0 +1,509 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Windows (vers 25 March 2009), see www.w3.org" />
+  <meta content="text/html; charset=us-ascii" http-equiv=
+  "content-type" />
+
+  <title>ElectricFlow Plugin for WebAccess</title>
+  <link rel="stylesheet" href=
+  "../../plugins/@PLUGIN_KEY@/pluginhelp.css" type="text/css"
+  media="screen" />
+</head>
+
+<body>
+  <div class="help">
+    <h1>WebAccess</h1>
+
+    <p>Plugin Version @PLUGIN_VERSION@</p>
+    <hr style=
+    "margin-left: -10px; margin-top: 10px; height: 2px; width: 100%; #5981BD;"
+    noshade="noshade" />
+    <!-- The tool description should answer these kinds of questions:5981BD
+        What is the tool itself is used for in the development
+        process? Who would use this tool? What is the general use-case or
+        problem that this tool solves? Look at the tool's documentation or
+        website(s) to get their own descriptions. Look at Wikipedia or other
+        outside websites. If there is a Hudson plugin, read their
+        documentation for ideas, examples, etc. It's OK to copy word-for-word
+        only if appropriate, such as FOSS - but not commercial software.
+        -->
+
+    <p>WebAccess is a plugin to interact with the internet in a
+    particular set of ways, it allows the user to check if a
+    specific URL is alive, as well as obtain the HTML text and
+    measure the time that the server consumes to fulfil the
+    request; another functionality involves text search in HTML
+    text, this text can read from a local file, obtained from a
+    URL, or even the text can be provided by the user manually. The
+    final functionality allows the user to make a REST API call and
+    review the server's response.</p>
+
+    <h2>ElectricFlow Integration to WebAccess</h2>
+    <!-- The integration description should answer the questions:
+        How deep does our integration go? Why should I care? What general
+        functionality does the plugin include? What functionality does
+        the plugin omit?
+        -->
+    <!--p>@PLUGIN_KEY@ plugin calls the WebAccess web services via HTTP Requests
+            and passes the user-provided parameters.</p-->
+
+    <p>The @PLUGIN_KEY@ plugin is open, it allows the input of any
+    HTTP request or any valid URL defined in the provided fields of
+    the parameters. Is important to provide all the parameters
+    required for the correct functioning of the WebAccess
+    plugin.</p>
+
+    <p>ElectricFlow itself provides some advantages like
+    parameters checking, easy functionality selection using only
+    check boxes or radio buttons, hitorical log reports, procedure
+    duration statistics, simple credentials attachment, real time
+    analysis of the log been generated, among others.</p>
+
+    <h2>Integrated Version</h2>
+
+    <p>This plugin was developed and tested against WebAccess
+    version @PLUGIN_VERSION@</p>
+
+    <h1>Plugin Procedures</h1>
+
+    <p>IMPORTANT: For all parameter descriptions below, required
+    parameters are shown in <span class='required'>bold
+    italics</span>.</p>
+    <hr style=
+    "margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; #5981BD;"
+    noshade="noshade" />
+
+    <div id="AccessURL"><a name='AccessURL' id="AccessURL"></a>
+
+    <h3>Access URL</h3>
+
+    <p>This procedure allows the user to check if a given URL is
+    "alive", also can get an HTML from the URL, and finally can
+    measure the time that the server consumes to fulfil the
+    request. It is important to mention that if a given URL
+    requires authentication, the user is able to provide it and
+    attempt to make the connection, although this is very
+    unusual.</p>
+
+    <p>Some of the parameters are not required for all cases,
+    however, the "required" specified fields cannot be omited.</p>
+    <!-- If the plugin has separate configurations then include this section,
+            otherwise omit this whole section. We don't need to have a configuration
+            section that just says "There is no configuration for this plugin."
+            -->
+
+    <table class="grid">
+      <thead>
+        <tr>
+          <th>Parameter</th>
+
+          <th>Description</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td class='required'>URL</td>
+
+          <td>Provide the URL required for the access. Remember
+          that this must be an absolute URL(Required)</td>
+        </tr>
+
+        <tr>
+          <td>Get HTML</td>
+
+          <td>Gets the HTML from the given URL, if the server
+          allows it. If this option is selected, an "HTML (output
+          property path)" entry is displayed, adding the option to
+          store the server's response on a ElectricFlow
+          property.</td>
+        </tr>
+
+        <tr>
+          <td>Credentials required</td>
+
+          <td>In case credentials are required to access the URL.
+          If this option is selected, "credential" entries are
+          displayed: 1 for the username and 1 for the
+          password.</td>
+        </tr>
+
+        <tr>
+          <td>Username</td>
+
+          <td>Provide a valid username. This entry is only
+          displayed if "Credentials required" is checked.</td>
+        </tr>
+
+        <tr>
+          <td>Password</td>
+
+          <td>Provide the valid password for your user name. This
+          entry is only displayed if "Credentials required" is
+          checked.</td>
+        </tr>
+
+        <tr>
+          <td>Check Time</td>
+
+          <td>Calculates the response time since the request is
+          sent, until all the information reaches the client.</td>
+        </tr>
+
+        <tr>
+          <td>HTML (output property path)</td>
+
+          <td>Provide a name to create an ElectricFlow
+          property, to store the server's response. This field is
+          displayed only if "Get HTML" is checked.</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- For all parameters, the parameter name should be *exactly* the same as it appears in the
+                Parameter Panel, and the first sentence(s) of the description should be
+                the same as the tooltip (if there is one). After that, the parameter
+                description can go into greater detail about the parameter including
+                valid value ranges and examples.
+                -->
+
+    <p>Access URL parameters form:</p><img src=
+    "../../plugins/@PLUGIN_KEY@/images/AccessURL.png" alt=
+    "screenshot" /></div>
+
+    <div id="HTMLtextSearch">
+      <a name='HTMLtextSearch' id="HTMLtextSearch"></a>
+
+      <h3>HTML Text Search</h3>
+
+      <p>This procedure allows different options of text search on
+      HTML documents, the user has the possibility to provide the
+      HTML text, or a local HTML file, even an absolute URL, and
+      the search can be made for some specific text, or search for
+      all the tags of a kind, e.g. all "&lt;p&gt;" tags on the
+      page, this will capture all data between the opening tag and
+      the closing tag.</p>
+
+      <p>Some of the parameters are not required for all cases,
+      however, the "required" specified fields cannot be
+      omited.</p><!-- If the plugin has separate configurations then include this section,
+            otherwise omit this whole section. We don't need to have a configuration
+            section that just says "There is no configuration for this plugin."
+            -->
+
+      <table class="grid">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+
+            <th>Description</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td class='required'>Search Option</td>
+
+            <td>Provide the search option, where the HTML text will
+            be obtained.(Required)</td>
+          </tr>
+
+          <tr>
+            <td>URL</td>
+
+            <td>Provide an absolute URL, displayed if search option
+            is "URL".</td>
+          </tr>
+
+          <tr>
+            <td>Local file path</td>
+
+            <td>Local path to an HTML file, displayed if search
+            option is "Local".</td>
+          </tr>
+
+          <tr>
+            <td>HTML text</td>
+
+            <td>Provide directly HTML text, displayed if search
+            option is "HTML Text".</td>
+          </tr>
+
+          <tr>
+            <td class='required'>Search Type</td>
+
+            <td>Provide the search type, by plain text or by
+            tags.(Required)</td>
+          </tr>
+
+          <tr>
+            <td>Plain text</td>
+
+            <td>Search for plain text on the HTML, displayed if
+            search type is "Plain text".</td>
+          </tr>
+
+          <tr>
+            <td>Tag</td>
+
+            <td>Search for all the tags of a kind, displayed if
+            search type is "In tags".</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>HTML text search parameters form:</p><img src=
+      "../../plugins/@PLUGIN_KEY@/images/HTMLsearch.png" alt=
+      "screenshot" /> 
+      <!--p>Here is the panel with some test values:</p><p></p>
+                <img src="../../plugins/@PLUGIN_KEY@/images/HTMLsearch1.png" alt="screenshot" /><p></p>
+                
+                <p>The output for this case should be:
+                </p><p></p>
+                
+                <img src="../../plugins/@PLUGIN_KEY@/images/HTMLsearch2.png" alt="screenshot" /><p></p-->
+    </div>
+
+    <div id="RestRequest"><a name='RestRequest' id=
+    "RestRequest"></a>
+
+    <h3>REST Request</h3>
+
+    <p>This procedure allows the input of any HTTP request, defined
+    in the provided fields of the parameters. The next step is to
+    analize wich parameters were sent and attempt to create and
+    send the HTTP request. Once the request is sent, it's necesary
+    to analize the response, and whether the response is success or
+    failure, the results are shown to the user.</p>
+
+    <p>Some of the Fields are not required for all types of
+    requests, however, the "required "specified fields cannot be
+    omited for any request.</p>
+
+    <table class="grid">
+      <thead>
+        <tr>
+          <th>Parameter</th>
+
+          <th>Description</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td class='required'>URL Base</td>
+
+          <td>Provide the base URL required for the request, this
+          section is basically formed by: the protocol used between
+          the browser and the web server for communication, then
+          the name of a server listening to messages using the HTTP
+          protocol, and finally the URL base also includes the name
+          of the domain where the web server
+          belongs.(Required)</td>
+        </tr>
+
+        <tr>
+          <td>Port</td>
+
+          <td>Defines the port number at the host.</td>
+        </tr>
+
+        <tr>
+          <td class='required'>Path URL</td>
+
+          <td>Provide the rest of the URL required to perform the
+          HTTP request. The common Path URL includes the path at
+          the server and the filename, that defines a name of a
+          document or resource.(Required)</td>
+        </tr>
+
+        <tr>
+          <td>Content Type</td>
+
+          <td>Specifies the nature of the linked resource. Some
+          examples of content types include "text/html",
+          "image/png", "image/gif", "video/mpeg", "text/css" and
+          "audio/basic".</td>
+        </tr>
+
+        <tr>
+          <td>Headers</td>
+
+          <td>Provide the HTTP header fields required for the
+          request, which can include general-header,
+          request-header, response-header, and entity-header
+          fields. Remember to write one header per line, and do not
+          use a colon (:) to separate key from value, use a
+          whitespace instead.</td>
+        </tr>
+
+        <tr>
+          <td>Content</td>
+
+          <td>Provide the body required for the request, which is
+          normally used in POST and PUT requests.</td>
+        </tr>
+
+        <tr>
+          <td class='required'>Authentication</td>
+
+          <td>Select the type of authentication, No Auth if no
+          authentication required, and Basic if the server requires
+          username and password to perform the HTTP
+          request.(Required)</td>
+        </tr>
+
+        <tr>
+          <td>Username</td>
+
+          <td>Provide a valid username. This entry is only
+          displayed if Authentication equals "basic".</td>
+        </tr>
+
+        <tr>
+          <td>Password</td>
+
+          <td>Provide the valid password for your user name. This
+          entry is only displayed if Authentication equals
+          "basic".</td>
+        </tr>
+
+        <tr>
+          <td class='required'>Request Type</td>
+
+          <td>Select the request type from the given options: GET,
+          POST, PUT or DELETE.(Required)</td>
+        </tr>
+
+        <tr>
+          <td>Response (output property path)</td>
+
+          <td>Provide a name to create an ElectricFlow
+          property, to store the server's response.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>REST request parameters form:</p><img src=
+    "../../plugins/@PLUGIN_KEY@/images/REST-1.png" alt=
+    "screenshot" /></div>
+
+    <h1>Use Cases and Examples</h1>
+    <!-- This section is for examples and use cases, including screenshots of the new Parameter Panel with example values filled in.
+        Unfortunately, I can't tell you what exactly to put here, but it's OK to put what seems like too much! Include both parameter
+        values and output where appropriate. Use a separate 'h2' header for each example. Under the h2 header try to stay with the style
+        outline used above where possible.
+        -->
+
+    <h2>Example 1: Access URL</h2>
+
+    <p>Here is an example of an "access" to a specific website, in
+    order to find out if it's online, to get the HTML and measure
+    the time that it's consumed on the communication between the
+    client and the server.</p>
+
+    <p>Provided parameters for this test:</p><img src=
+    "../../plugins/@PLUGIN_KEY@/images/AccessURL1.png" alt=
+    "screenshot" />
+
+    <p>Once the parameters are set, now you are able to execute the
+    step.</p>
+
+    <h4>Results and outputs</h4>
+
+    <p>Once the job finished, you can see the output of the
+    procedure:</p><br />
+    <img src="../../plugins/@PLUGIN_KEY@/images/AccessURL2.png"
+    alt="screenshot" />
+
+    <p>and at the bottom of the page:</p><img src=
+    "../../plugins/@PLUGIN_KEY@/images/AccessURL3.png" alt=
+    "screenshot" /><br />
+
+    <h2>Example 2: HTML Text Search</h2>
+
+    <p>Here is an example of HTML text search, the HTML will be
+    obtained from a given URL and the search will look for "li"
+    tags.</p>
+
+    <p>Provided parameters for this test:</p><img src=
+    "../../plugins/@PLUGIN_KEY@/images/HTMLsearch1.png" alt=
+    "screenshot" />
+
+    <p>Once the parameters are set, now you are able to execute the
+    step.</p>
+
+    <h4>Results and outputs</h4>
+
+    <p>Once the job finished, you can see the output of the
+    procedure:</p><br />
+    <img src="../../plugins/@PLUGIN_KEY@/images/HTMLsearch2.png"
+    alt="screenshot" /><br />
+
+    <h2>Example 3: REST Request</h2>
+
+    <p>Here is an example of a REST request, the request is pretty
+    simple, a GET made on the facebook API, with one of their
+    example users(btaylor).</p>
+
+    <p>Provided parameters for this test:</p><img src=
+    "../../plugins/@PLUGIN_KEY@/images/RESTrequest1.png" alt=
+    "screenshot" />
+
+    <p>Once the parameters are set, now you are able to execute the
+    step.</p>
+
+    <h4>Results and outputs</h4>
+
+    <p>Once the job finished, you can see the output of the
+    procedure:</p><br />
+    <img src="../../plugins/@PLUGIN_KEY@/images/RESTrequest2.png"
+    alt="screenshot" /><br />
+
+    <h1>Release Notes</h1>
+    <h2>EC-WebAccess-1.0.5</h2>
+    <ul>
+        <li>Fixed a bug when it was not posible to run EC-WebAccess procedures in pipeline context.</li>
+    </ul>
+    <h2>EC-WebAccess-1.0.4</h2>
+
+    <ul>
+      <li>Remove shared plugins directory dependence.</li>
+    </ul>
+    
+    <h2>EC-WebAccess-1.0.3</h2>
+
+    <ul>
+      <li>Fix system test issue.</li>
+    </ul>
+
+    <h2>EC-WebAccess-1.0.2</h2>
+
+    <ul>
+      <li>Fix link to help page issue.</li>
+    </ul>
+
+    <h2>EC-WebAccess-1.0.1</h2>
+
+    <ul>
+      <li>Improve URL validation, port section specifically.</li>
+    </ul>
+
+    <h2>EC-WebAccess-1.0.0</h2>
+
+    <ul>
+      <li>Procedures: AccessURL, HTMLtextSearch and
+      RESTrequest.</li>
+
+      <li>Implemented dynamic GWT parameter panels.</li>
+
+      <li>Created help page, including detailed examples.</li>
+
+      <li>Postp implementation.</li>
+    </ul>
+  </div>
+</body>
+</html>

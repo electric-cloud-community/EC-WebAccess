@@ -1,0 +1,279 @@
+# -*-Perl-*-
+
+# webaccess-RunTest.ntest -
+#
+# ECWebAccess
+#
+# Copyright (c) 2005-2012 Electric Cloud, Inc.
+# All rights reserved
+
+use strict;
+use ECTest;
+use ECSelenium;
+
+ 
+# system tests
+
+
+require "$::gTestFileDir/../../EC-WebAccess/systemtest/webaccess-common.ntest";
+
+
+$::grunWebAccessCreated = 0;
+$::gProjectImported = 0;
+
+#stores the result wheter the result of the procedure is success or error
+my $outcome = "";
+
+sub importProject() {
+    assertOK($::N->import(
+                     { file =>"$::gTestFileDir/import.xml",
+               path  => "/projects/webaccess-test",
+               force => 1
+             } ), "import runWebAccessCommandLine");
+   
+assertOK($::N->getProcedure("webaccess-test", "accessUrl-proc"),"accessUrl-proc procedure exists");
+assertOK($::N->getProcedure("webaccess-test", "accessUrl2-proc"),"accessUrl2-proc procedure exists");
+assertOK($::N->getProcedure("webaccess-test", "google-api-request"),"google-api-request procedure exists");
+assertOK($::N->getProcedure("webaccess-test", "htmlTextSearch"),"htmlTextSearch procedure exists");
+$::gProjectImported = 1;
+}
+
+sub doSetup() {
+
+    if(! $::gProjectImported) {
+        importProject();
+    }
+
+}
+
+#correctWebAccessSyntax 
+
+#Test a webaccess command with a correct syntax
+ntest "accessUrl-proc", {}, sub {
+    doSetup();
+    # run test job
+    my $xpath = $::N->runProcedure("webaccess-test", 
+        { procedureName => "accessUrl-proc",
+          pollInterval  => '1',
+          timeout => 1200,
+          actualParameter => []
+        });
+    # make sure it finished
+    my $jobId = 0;
+    my $status = "";
+             
+    assertOK($xpath, "runProcedure with errors");
+    if ($xpath) {
+        $jobId  = $xpath->findvalue("//jobId");
+        $status = $xpath->findvalue("//status");
+        $outcome = $xpath->findvalue("//outcome");
+         
+        assertTrue($jobId && $jobId ne "",'valid job id');
+        assertEq('completed',$status,"job $jobId complete");
+         
+        #abort if job did not finish
+        if ($status ne "completed") {
+            assertOK($::N->abortJob($jobId, {force => 1}));
+        }
+    }
+    # get the job details
+    $xpath = $::N->getJobDetails($jobId); 
+    
+    # Declare the expected value
+    my $expected = qq{URL Online - HTTP Status: 200 OK};
+        
+    # Get the root of log files. use UNC so it works from
+    # command line as well as within a CMD step
+    my $ws = $xpath->findvalue("//workspace[1]/winUNC");
+    
+    if (!isWindows()) {
+        $ws = $xpath->findvalue("//workspace[1]/unix");
+    }
+    
+    return if assertNe($ws, '', "Found a logfile name");
+    
+    my $logFileName = $xpath->findvalue(
+        "//jobStep[stepName='stepAccess1']/calledProcedure/jobStep[stepName='AccessURL']/logFileName");
+    return if assertNe($logFileName, '', "Found a logfile name");
+    $logFileName = "$ws/$logFileName";
+
+    # Read the log file and verify its contents.
+    my $data = readFile($logFileName);
+    return if assertNe($data, '', "Read data");
+
+    my @data_arr = split("\n",$data);
+    assertEq($expected, $data_arr[-4], "Correct WebAccess request");
+    
+};
+
+ntest "accessUrl2-proc", {}, sub {
+    doSetup();
+    # run test job
+    my $xpath = $::N->runProcedure("webaccess-test", 
+        { procedureName => "accessUrl2-proc",
+          pollInterval  => '1',
+          timeout => 1200,
+          actualParameter => []
+        });
+    # make sure it finished
+    my $jobId = 0;
+    my $status = "";
+             
+    assertOK($xpath, "runProcedure with errors");
+    if ($xpath) {
+        $jobId  = $xpath->findvalue("//jobId");
+        $status = $xpath->findvalue("//status");
+        $outcome = $xpath->findvalue("//outcome");
+         
+        assertTrue($jobId && $jobId ne "",'valid job id');
+        assertEq('completed',$status,"job $jobId complete");
+         
+        #abort if job did not finish
+        if ($status ne "completed") {
+            assertOK($::N->abortJob($jobId, {force => 1}));
+        }
+    }
+    # get the job details
+    $xpath = $::N->getJobDetails($jobId); 
+    
+    # Declare the expected value
+    my $expected = qq{URL Online - HTTP Status: 200 OK};
+        
+    # Get the root of log files. use UNC so it works from
+    # command line as well as within a CMD step
+    my $ws = $xpath->findvalue("//workspace[1]/winUNC");
+    
+    if (!isWindows()) {
+        $ws = $xpath->findvalue("//workspace[1]/unix");
+    }
+    
+    return if assertNe($ws, '', "Found a logfile name");
+    
+    my $logFileName = $xpath->findvalue(
+        "//jobStep[stepName='stepAccess2']/calledProcedure/jobStep[stepName='AccessURL']/logFileName");
+    return if assertNe($logFileName, '', "Found a logfile name");
+    $logFileName = "$ws/$logFileName";
+
+    # Read the log file and verify its contents.
+    my $data = readFile($logFileName);
+    return if assertNe($data, '', "Read data");
+
+    my @data_arr = split("\n",$data);
+    assertEq($expected, $data_arr[7], "Correct WebAccess request");
+    
+};
+
+ntest "google-api-request", {}, sub {
+    doSetup();
+    # run test job
+    my $xpath = $::N->runProcedure("webaccess-test", 
+        { procedureName => "google-api-request",
+          pollInterval  => '1',
+          timeout => 1200,
+          actualParameter => []
+        });
+    # make sure it finished
+    my $jobId = 0;
+    my $status = "";
+             
+    assertOK($xpath, "runProcedure with errors");
+    if ($xpath) {
+        $jobId  = $xpath->findvalue("//jobId");
+        $status = $xpath->findvalue("//status");
+        $outcome = $xpath->findvalue("//outcome");
+         
+        assertTrue($jobId && $jobId ne "",'valid job id');
+        assertEq('completed',$status,"job $jobId complete");
+         
+        #abort if job did not finish
+        if ($status ne "completed") {
+            assertOK($::N->abortJob($jobId, {force => 1}));
+        }
+    }
+    # get the job details
+    $xpath = $::N->getJobDetails($jobId); 
+    
+    # Declare the expected value
+    my $expected = qq{HTTP/1.1 200 OK};
+        
+    # Get the root of log files. use UNC so it works from
+    # command line as well as within a CMD step
+    my $ws = $xpath->findvalue("//workspace[1]/winUNC");
+    
+    if (!isWindows()) {
+        $ws = $xpath->findvalue("//workspace[1]/unix");
+    }
+    
+    return if assertNe($ws, '', "Found a logfile name");
+    
+    my $logFileName = $xpath->findvalue(
+        "//jobStep[stepName='step0']/calledProcedure/jobStep[stepName='restRequest']/logFileName");
+    return if assertNe($logFileName, '', "Found a logfile name");
+    $logFileName = "$ws/$logFileName";
+
+    # Read the log file and verify its contents.
+    my $data = readFile($logFileName);
+    return if assertNe($data, '', "Read data");
+
+    my @data_arr = split("\n",$data);
+    assertEq($expected, $data_arr[12], "Correct WebAccess request");
+    
+};
+
+ntest "htmlTextSearch", {}, sub {
+    doSetup();
+    # run test job
+    my $xpath = $::N->runProcedure("webaccess-test", 
+        { procedureName => "htmlTextSearch",
+          pollInterval  => '1',
+          timeout => 1200,
+          actualParameter => []
+        });
+    # make sure it finished
+    my $jobId = 0;
+    my $status = "";
+             
+    assertOK($xpath, "runProcedure with errors");
+    if ($xpath) {
+        $jobId  = $xpath->findvalue("//jobId");
+        $status = $xpath->findvalue("//status");
+        $outcome = $xpath->findvalue("//outcome");
+         
+        assertTrue($jobId && $jobId ne "",'valid job id');
+        assertEq('completed',$status,"job $jobId complete");
+         
+        #abort if job did not finish
+        if ($status ne "completed") {
+            assertOK($::N->abortJob($jobId, {force => 1}));
+        }
+    }
+    # get the job details
+    $xpath = $::N->getJobDetails($jobId); 
+    
+    # Declare the expected value
+    my $expected = qq{Search Type: Plain Text: 'Microsoft Corporation'};
+        
+    # Get the root of log files. use UNC so it works from
+    # command line as well as within a CMD step
+    my $ws = $xpath->findvalue("//workspace[1]/winUNC");
+    
+    if (!isWindows()) {
+        $ws = $xpath->findvalue("//workspace[1]/unix");
+    }
+    
+    return if assertNe($ws, '', "Found a logfile name");
+    
+    my $logFileName = $xpath->findvalue(
+        "//jobStep[stepName='stepHtml']/calledProcedure/jobStep[stepName='HTMLtextS']/logFileName");
+    return if assertNe($logFileName, '', "Found a logfile name");
+    $logFileName = "$ws/$logFileName";
+
+    # Read the log file and verify its contents.
+    my $data = readFile($logFileName);
+    return if assertNe($data, '', "Read data");
+
+    my @data_arr = split("\n",$data);
+    assertEq($expected, $data_arr[3], "Correct WebAccess request");
+    
+};
+

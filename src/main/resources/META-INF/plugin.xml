@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+    <key>@PLUGIN_KEY@</key>
+    <version>@PLUGIN_VERSION@</version>
+    <label>@PLUGIN_KEY@</label>
+    <description>Integrates basic web access functions into ElectricFlow</description>
+    <author>Electric Cloud</author>
+    <authorUrl>http://www.electric-cloud.com/support</authorUrl>
+    <category>Utility</category>
+    <commander-version min="3.6"/>
+    <help>EC-WebAccess_help.xml</help>    
+    <components>
+        <component name="HTMLtextSearchParameterPanel">
+            <javascript>war/ecplugins.EC_WebAccess.HTMLtextSearchParameterPanel/ecplugins.EC_WebAccess.HTMLtextSearchParameterPanel.nocache.js</javascript>
+        </component>
+        <component name="AccessURLParameterPanel">
+            <javascript>war/ecplugins.EC_WebAccess.AccessURLParameterPanel/ecplugins.EC_WebAccess.AccessURLParameterPanel.nocache.js</javascript>
+        </component>
+        <component name="RestRequestParameterPanel">
+            <javascript>war/ecplugins.EC_WebAccess.RestRequestParameterPanel/ecplugins.EC_WebAccess.RestRequestParameterPanel.nocache.js</javascript>
+        </component>
+    </components>
+    <customTypes>
+        <customType name="HTMLtextSearch">
+            <parameterPanel>
+                <javascript>war/ecplugins.EC_WebAccess.HTMLtextSearchParameterPanel/ecplugins.EC_WebAccess.HTMLtextSearchParameterPanel.nocache.js</javascript>
+                <help>/commander/pages/@PLUGIN_KEY@-@PLUGIN_VERSION@/EC-WebAccess_help?s=Administration&amp;ss=Plugins#HTMLtextSearch
+                </help>
+            </parameterPanel>
+        </customType>
+        <customType name="AccessURL">
+            <parameterPanel>
+                <javascript>war/ecplugins.EC_WebAccess.AccessURLParameterPanel/ecplugins.EC_WebAccess.AccessURLParameterPanel.nocache.js</javascript>
+                <help>/commander/pages/@PLUGIN_KEY@-@PLUGIN_VERSION@/EC-WebAccess_help?s=Administration&amp;ss=Plugins#AccessURL
+                </help>
+            </parameterPanel>
+        </customType>
+        <customType name="RestRequest">
+            <parameterPanel>
+                <javascript>war/ecplugins.EC_WebAccess.RestRequestParameterPanel/ecplugins.EC_WebAccess.RestRequestParameterPanel.nocache.js</javascript>
+                <help>/commander/pages/@PLUGIN_KEY@-@PLUGIN_VERSION@/EC-WebAccess_help?s=Administration&amp;ss=Plugins#RestRequest
+                </help>
+            </parameterPanel>
+        </customType>
+    </customTypes>
+</plugin>
