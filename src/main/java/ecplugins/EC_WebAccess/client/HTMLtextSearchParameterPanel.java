@@ -273,19 +273,35 @@ public class HTMLtextSearchParameterPanel
         }
 
         // Do the easy form elements first.
+
+        String searchOption = params.get(SEARCHOP);
+        if (searchOption.isEmpty()) {
+            searchParameterForm.setValue(SEARCHOP, "urlOp");
+        }
+        else {
+            searchParameterForm.setValue(SEARCHOP, searchOption);
+        }
+
+        String searchType = params.get(SEARCHTYPE);
+        if (searchType.isEmpty()) {
+            searchParameterForm.setValue(SEARCHTYPE, "textOp");
+        }
+        else {
+            searchParameterForm.setValue(SEARCHTYPE, searchType);
+        }
+
         for (String key : new String[] {
-                    SEARCHOP,
+                    //SEARCHOP,
                     URL,
                     LOCAL,
                     HTMLTEXT,
-                    SEARCHTYPE,
+                    // SEARCHTYPE,
                     TEXT,
                     TAG
                 }) {
             searchParameterForm.setValue(key,
                 StringUtil.nullToEmpty(params.get(key)));
         }
-
         updateRowVisibility();
     }
 
